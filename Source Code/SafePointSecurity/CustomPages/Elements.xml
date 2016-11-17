@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="CustomPages" Url="SitePages" Path="CustomPages">
+    <File Path="SPS_Service.aspx" Url="SafePointSecurity/SPS_Service.aspx" Type="GhostableInLibrary"/>
+  </Module>
+</Elements>

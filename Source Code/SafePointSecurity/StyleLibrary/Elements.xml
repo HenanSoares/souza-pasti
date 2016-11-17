@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="StyleLibrary" Url="Style Library">
+    <File Path="StyleLibrary\css\bootstrap.min.css" Url="SafePointSecurity/css/bootstrap.min.css" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\default.css" Url="SafePointSecurity/css/default.css" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\angular.treeview.css" Url="SafePointSecurity/css/angular.treeview.css"  Type="GhostableInLibrary"/>
+
+    <File Path="StyleLibrary\js\jquery.min.js" Url="SafePointSecurity/js/jquery.min.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\bootstrap.min.js" Url="SafePointSecurity/js/bootstrap.min.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\pageRelatorios.js" Url="SafePointSecurity/js/pageRelatorios.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\angular.min.js" Url="SafePointSecurity/js/angular.min.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\dirPagination.js" Url="SafePointSecurity/js/dirPagination.js"  Type="GhostableInLibrary" />
+    <File Path="StyleLibrary\js\underscore-min.js" Url="SafePointSecurity/js/underscore-min.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\safepoint_controller.js" Url="SafePointSecurity/js/safepoint_controller.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\angular-filter.min.js" Url="SafePointSecurity/js/angular-filter.min.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\treeDirective.js" Url="SafePointSecurity/js/treeDirective.js"  Type="GhostableInLibrary"/>
+    
+    <File Path="StyleLibrary\img\logo.png" Url="SafePointSecurity/img/logo.png" Type="GhostableInLibrary"/>
+    
+    <File Path="StyleLibrary\css\icons\icons-lte-ie7.js" Url="SafePointSecurity/css/icons/icons-lte-ie7.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\icons\simple-line-icons.min.css" Url="SafePointSecurity/css/icons/simple-line-icons.min.css" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\icons\fonts\Simple-Line-Icons.dev.svg" Url="SafePointSecurity/css/icons/fonts/Simple-Line-Icons.dev.svg" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\icons\fonts\Simple-Line-Icons.eot" Url="SafePointSecurity/css/icons/fonts/Simple-Line-Icons.eot" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\icons\fonts\Simple-Line-Icons.svg" Url="SafePointSecurity/css/icons/fonts/Simple-Line-Icons.svg" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\icons\fonts\Simple-Line-Icons.ttf" Url="SafePointSecurity/css/icons/fonts/Simple-Line-Icons.ttf" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\css\icons\fonts\Simple-Line-Icons.woff" Url="SafePointSecurity/css/icons/fonts/Simple-Line-Icons.woff" Type="GhostableInLibrary"/>
+    
+    <File Path="StyleLibrary\css\kjvelarde-multiselect-searchtree-0.9.5.min.css" Url="SafePointSecurity/css/kjvelarde-multiselect-searchtree-0.9.5.min.css" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\kjvelarde-multiselect-searchtree-0.9.5.min.js" Url="SafePointSecurity/js/kjvelarde-multiselect-searchtree-0.9.5.min.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\kjvelarde-multiselect-searchtree-0.9.5.tpl.js" Url="SafePointSecurity/js/kjvelarde-multiselect-searchtree-0.9.5.tpl.js" Type="GhostableInLibrary"/>
+    <File Path="StyleLibrary\js\loading-bar.min.js" Url="SafePointSecurity/js/loading-bar.min.js" />
+    <File Path="StyleLibrary\css\loading-bar.min.css" Url="SafePointSecurity/css/loading-bar.min.css" />
+    <File Path="StyleLibrary\js\ViewModel\PermissaoViewModel.js" Url="SafePointSecurity/js/ViewModel/PermissaoViewModel.js" />
+    <File Path="StyleLibrary\js\ng-tags-input.min.js" Url="SafePointSecurity/js/ng-tags-input.min.js" />
+    <File Path="StyleLibrary\css\ng-tags-input.min.css" Url="SafePointSecurity/css/ng-tags-input.min.css" />
+  </Module>
+</Elements>

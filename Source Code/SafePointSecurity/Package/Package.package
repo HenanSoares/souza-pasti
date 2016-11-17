@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e4b13fe1-7516-45eb-8bb5-a9e8a2f3c255" solutionId="e4b13fe1-7516-45eb-8bb5-a9e8a2f3c255" resetWebServer="false" sharePointProductVersion="15.0" name="SafePointSecurity" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="SafePointSecurity.Model.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\SafePointSecurity.Model\SafePointSecurity.Model.csproj">
+      <safeControls>
+        <safeControl namespaceName="SafePointSecurity.Model" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
+    <projectOutputAssembly location="SafePointSecurity.Infrastructure.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\SafePointSecurity.Infrastructure\SafePointSecurity.Infrastructure.csproj">
+      <safeControls>
+        <safeControl namespaceName="SafePointSecurity.Infrastructure" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
+    <customAssembly location="Newtonsoft.Json.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\Newtonsoft.Json.dll" />
+    <projectOutputAssembly location="SafePointSecurity.Common.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\SafePointSecurity.Common\SafePointSecurity.Common.csproj">
+      <safeControls>
+        <safeControl namespaceName="SafePointSecurity.Common" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
+    <projectOutputAssembly location="SafePointSecurity.Application.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\SafePointSecurity.Application\SafePointSecurity.Application.csproj">
+      <safeControls>
+        <safeControl namespaceName="SafePointSecurity.Application" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
+  </assemblies>
+  <features>
+    <featureReference itemId="3271cf19-1eb2-4520-9530-4634e8128b7c" />
+    <featureReference itemId="a2d9c53a-e069-4057-9bf9-ff4c8fbab0d6" />
+  </features>
+</package>

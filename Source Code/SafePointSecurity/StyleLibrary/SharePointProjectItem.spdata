@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="StyleLibrary\" Type="ElementManifest" />
+    <ProjectItemFile Source="css\bootstrap.min.css" Target="StyleLibrary\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\default.css" Target="StyleLibrary\css\" Type="ElementFile" />
+    <ProjectItemFile Source="js\jquery.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\bootstrap.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\pageRelatorios.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="img\logo.png" Target="StyleLibrary\img\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons\icons-lte-ie7.js" Target="StyleLibrary\css\icons\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons\simple-line-icons.min.css" Target="StyleLibrary\css\icons\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons\fonts\Simple-Line-Icons.dev.svg" Target="StyleLibrary\css\icons\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons\fonts\Simple-Line-Icons.eot" Target="StyleLibrary\css\icons\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons\fonts\Simple-Line-Icons.svg" Target="StyleLibrary\css\icons\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons\fonts\Simple-Line-Icons.ttf" Target="StyleLibrary\css\icons\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons\fonts\Simple-Line-Icons.woff" Target="StyleLibrary\css\icons\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="js\angular.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\safepoint_controller.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\underscore-min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\angular-filter.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\dirPagination.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\underscore.string.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\treeDirective.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="css\angular.treeview.css" Target="StyleLibrary\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\kjvelarde-multiselect-searchtree-0.9.5.min.css" Target="StyleLibrary\css\" Type="ElementFile" />
+    <ProjectItemFile Source="js\kjvelarde-multiselect-searchtree-0.9.5.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\kjvelarde-multiselect-searchtree-0.9.5.tpl.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\loading-bar.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="css\loading-bar.min.css" Target="StyleLibrary\css\" Type="ElementFile" />
+    <ProjectItemFile Source="js\ViewModel\PermissaoViewModel.js" Target="StyleLibrary\js\ViewModel\" Type="ElementFile" />
+    <ProjectItemFile Source="js\ng-tags-input.min.js" Target="StyleLibrary\js\" Type="ElementFile" />
+    <ProjectItemFile Source="css\ng-tags-input.min.css" Target="StyleLibrary\css\" Type="ElementFile" />
+  </Files>
+</ProjectItem>
