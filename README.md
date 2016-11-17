@@ -1,7 +1,8 @@
 # SafePoint Security
 
-Projeto de software em atendimento à disciplina de TTC-2 da Faculdade do Centro Leste - 2016/02.
-O mesmo trata-se do desenvolvimento de uma ferramenta capaz de auxiliar os profissionais administradores de ambientes SharePoint, a controlar da melhor forma as atividades no gerenciamento de segurança no ambiente SharePoint.Com a adoção dessa solução espera-se notar uma redução significativa dos incidentes relacionados ao controle de segurança e uma expectativa de economia em relação aos custos com consultorias.
+Projeto de software em atendimento à disciplina de TTC-2 da <a href="https://www.ucl.br/">Faculdade do Centro Leste</a> - 2016/02.
+
+O mesmo trata-se do desenvolvimento de uma ferramenta capaz de auxiliar os profissionais administradores de ambientes SharePoint, a controlar da melhor forma as atividades no gerenciamento de segurança no ambiente SharePoint. Com a adoção dessa solução espera-se notar uma redução significativa dos incidentes relacionados ao controle de segurança e uma expectativa de economia em relação aos custos com consultorias.
 
 ## Sumário
 
