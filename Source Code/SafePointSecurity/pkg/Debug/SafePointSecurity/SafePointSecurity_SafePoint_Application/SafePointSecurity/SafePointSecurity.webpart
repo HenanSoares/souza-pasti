@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="SafePointSecurity.VisualWebPart1, SafePointSecurity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2664ee7e78e28e42" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">SafePointSecurity</property>
+        <property name="Description" type="string">WebPart para gerenciamentos de Permissões e acessos em sitecollections.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

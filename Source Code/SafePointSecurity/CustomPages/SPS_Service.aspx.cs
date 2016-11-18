@@ -125,16 +125,23 @@ namespace SafePointSecurity
                         var anterior = web.AllowUnsafeUpdates;
                         web.AllowUnsafeUpdates = true;
 
-                        SPPrincipal principal = null;
-                        //if (Convert.ToInt32(viewModel.tipo) == 1)
-                        //{
-                        //    principal = (SPPrincipal)web.EnsureUser(viewModel.nome);
-                        //}
-                        //else
-                        //{
-                        principal = (SPPrincipal)web.SiteGroups[viewModel.nome];
-                        //}
+                        //Criar grupo:
+                        SPGroup group = null;                        
+                        try
+                        {
+                            group = web.SiteGroups[viewModel.nome];
+                        }
+                        catch (Exception)
+                        {
+                            if (group == null)
+                            {
+                                web.SiteGroups.Add(viewModel.nome, SPContext.Current.Web.CurrentUser, web.Author, "Your Group Description");
+                                group = web.SiteGroups[viewModel.nome];
+                            }
+                        }
 
+
+                        // Adicionar permissão:
                         SPRoleType type = SPRoleType.None;
                         switch (viewModel.nivelPermissao)
                         {
@@ -144,13 +151,12 @@ namespace SafePointSecurity
                             case "Edição": type = SPRoleType.Editor; break;
                             case "Designer": type = SPRoleType.WebDesigner; break;
                         }
-
-                        SPRoleAssignment roleAssignment = new SPRoleAssignment(principal);
                         SPRoleDefinition roleDefinition = web.RoleDefinitions.GetByType(type);
+
+                        SPRoleAssignment roleAssignment = new SPRoleAssignment(group);
                         roleAssignment.RoleDefinitionBindings.Add(roleDefinition);
                         web.RoleAssignments.Add(roleAssignment);
                         web.Update();
-
                         web.AllowUnsafeUpdates = !anterior;
                     }
                 });
@@ -193,39 +199,14 @@ namespace SafePointSecurity
 
                         try
                         {
-                            web.RoleAssignments.Remove((SPPrincipal)web.SiteGroups[viewModel.nome]);
+                            web.RoleAssignments.Remove(web.SiteGroups[viewModel.nome]);
                         }
                         catch (Exception)
                         {
-                            web.RoleAssignments.Remove((SPPrincipal)web.EnsureUser(viewModel.nome));
+                            web.RoleAssignments.Remove(web.EnsureUser(viewModel.nome));
                         }
 
-                        //SPPrincipal principal = null;
-                        ////if (Convert.ToInt32(viewModel.tipo) == 1)
-                        ////{
-                        ////    principal = (SPPrincipal)web.EnsureUser(viewModel.nome);
-                        ////}
-                        ////else
-                        ////{
-                        //principal = (SPPrincipal)web.SiteGroups[viewModel.nome];
-                        ////}
-
-                        //SPRoleType type = SPRoleType.None;
-                        //switch (viewModel.nivelPermissao)
-                        //{
-                        //    case "Contribuição": type = SPRoleType.Contributor; break;
-                        //    case "Controle Total": type = SPRoleType.Administrator; break;
-                        //    case "Leitura": type = SPRoleType.Reader; break;
-                        //    case "Edição": type = SPRoleType.Editor; break;
-                        //    case "Designer": type = SPRoleType.WebDesigner; break;
-                        //}
-
-                        //SPRoleAssignment roleAssignment = new SPRoleAssignment(principal);
-                        //SPRoleDefinition roleDefinition = web.RoleDefinitions.GetByType(type);
-                        //roleAssignment.RoleDefinitionBindings.Add(roleDefinition);
-                        //web.RoleAssignments.Add(roleAssignment);
                         web.Update();
-
                         web.AllowUnsafeUpdates = !anterior;
                     }
                 });

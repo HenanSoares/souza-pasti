@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" AlwaysForceInstall="TRUE" Description="Adiciona entradas no webconfig para execução de scripts e etc." Id="31d859bc-a61d-4bfc-ba39-08c9982b8a72" ReceiverAssembly="SafePointSecurity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2664ee7e78e28e42" ReceiverClass="SafePointSecurity.Features.SafePoint_Configuration.SafePoint_ConfigurationEventReceiver" Scope="WebApplication" Title="SafePointSecurity- Configuração"></Feature>

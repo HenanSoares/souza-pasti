@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" AlwaysForceInstall="TRUE" Description="Instala webpart e recursos." Id="d98ad088-a33b-4f2a-9548-cafac22c55a7" Scope="Site" Title="SafePointSecurity - Gerenciamento de Segurança">
+  <ElementManifests>
+    <ElementManifest Location="SafePointSecurity\Elements.xml" />
+    <ElementFile Location="SafePointSecurity\SafePointSecurity.webpart" />
+    <ElementManifest Location="StyleLibrary\Elements.xml" />
+    <ElementFile Location="StyleLibrary\css\bootstrap.min.css" />
+    <ElementFile Location="StyleLibrary\css\default.css" />
+    <ElementFile Location="StyleLibrary\js\jquery.min.js" />
+    <ElementFile Location="StyleLibrary\js\bootstrap.min.js" />
+    <ElementFile Location="StyleLibrary\js\pageRelatorios.js" />
+    <ElementFile Location="StyleLibrary\img\logo.png" />
+    <ElementFile Location="StyleLibrary\css\icons\icons-lte-ie7.js" />
+    <ElementFile Location="StyleLibrary\css\icons\simple-line-icons.min.css" />
+    <ElementFile Location="StyleLibrary\css\icons\fonts\Simple-Line-Icons.dev.svg" />
+    <ElementFile Location="StyleLibrary\css\icons\fonts\Simple-Line-Icons.eot" />
+    <ElementFile Location="StyleLibrary\css\icons\fonts\Simple-Line-Icons.svg" />
+    <ElementFile Location="StyleLibrary\css\icons\fonts\Simple-Line-Icons.ttf" />
+    <ElementFile Location="StyleLibrary\css\icons\fonts\Simple-Line-Icons.woff" />
+    <ElementFile Location="StyleLibrary\js\angular.min.js" />
+    <ElementFile Location="StyleLibrary\js\safepoint_controller.js" />
+    <ElementFile Location="StyleLibrary\js\underscore-min.js" />
+    <ElementFile Location="StyleLibrary\js\angular-filter.min.js" />
+    <ElementFile Location="StyleLibrary\js\dirPagination.js" />
+    <ElementFile Location="StyleLibrary\js\underscore.string.min.js" />
+    <ElementFile Location="StyleLibrary\js\treeDirective.js" />
+    <ElementFile Location="StyleLibrary\css\angular.treeview.css" />
+    <ElementFile Location="StyleLibrary\css\kjvelarde-multiselect-searchtree-0.9.5.min.css" />
+    <ElementFile Location="StyleLibrary\js\kjvelarde-multiselect-searchtree-0.9.5.min.js" />
+    <ElementFile Location="StyleLibrary\js\kjvelarde-multiselect-searchtree-0.9.5.tpl.js" />
+    <ElementFile Location="StyleLibrary\js\loading-bar.min.js" />
+    <ElementFile Location="StyleLibrary\css\loading-bar.min.css" />
+    <ElementFile Location="StyleLibrary\js\ViewModel\PermissaoViewModel.js" />
+    <ElementFile Location="StyleLibrary\js\ng-tags-input.min.js" />
+    <ElementFile Location="StyleLibrary\css\ng-tags-input.min.css" />
+    <ElementManifest Location="CustomPages\Elements.xml" />
+    <ElementFile Location="CustomPages\SPS_Service.aspx" />
+  </ElementManifests>
+</Feature>

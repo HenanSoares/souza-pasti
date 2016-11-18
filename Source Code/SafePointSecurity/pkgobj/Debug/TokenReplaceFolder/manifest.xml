@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="e4b13fe1-7516-45eb-8bb5-a9e8a2f3c255" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="SafePointSecurity.Model.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Namespace="SafePointSecurity.Model" TypeName="*" />
+      </SafeControls>
+    </Assembly>
+    <Assembly Location="SafePointSecurity.Infrastructure.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Namespace="SafePointSecurity.Infrastructure" TypeName="*" />
+      </SafeControls>
+    </Assembly>
+    <Assembly Location="Newtonsoft.Json.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="SafePointSecurity.Common.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Namespace="SafePointSecurity.Common" TypeName="*" />
+      </SafeControls>
+    </Assembly>
+    <Assembly Location="SafePointSecurity.Application.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Namespace="SafePointSecurity.Application" TypeName="*" />
+      </SafeControls>
+    </Assembly>
+    <Assembly Location="SafePointSecurity.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Assembly="SafePointSecurity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2664ee7e78e28e42" Namespace="SafePointSecurity" TypeName="*" />
+        <SafeControl Assembly="SafePointSecurity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2664ee7e78e28e42" Namespace="SafePointSecurity.CustomPages" TypeName="*" />
+      </SafeControls>
+    </Assembly>
+  </Assemblies>
+  <FeatureManifests>
+    <FeatureManifest Location="SafePointSecurity_SafePoint_Application\Feature.xml" />
+    <FeatureManifest Location="SafePointSecurity_SafePoint_Configuration\Feature.xml" />
+  </FeatureManifests>
+</Solution>

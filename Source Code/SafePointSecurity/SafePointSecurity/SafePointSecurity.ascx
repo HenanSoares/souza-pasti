@@ -31,19 +31,6 @@
 <link href="/Style%20Library/SafePointSecurity/css/ng-tags-input.min.css" rel="stylesheet" />
 <link href="/Style%20Library/SafePointSecurity/css/default.css" rel="stylesheet" />
 
-<%--<script>
-    var spContext = SharePointContextProvider.Current.GetSharePointContext(Context);
-  
-    using (var clientContext = spContext.CreateUserClientContextForSPHost())
-    {
-        // Get the people manager instance for current context to get account name
-        PeopleManager peopleManager = new PeopleManager(clientContext);
-        PersonProperties personProperties = peopleManager.GetMyProperties();
-        clientContext.Load(personProperties, p => p.AccountName);
-        clientContext.ExecuteQuery();
-    }
-</script>--%>
-
 <div ng-app="safepointApp">
     <div class="safepoint" ng-controller="safepointController">
         <div class="container-fluid">
@@ -168,7 +155,10 @@
                         <div class="row">
                             <div class="table-scrollable report-table-result">
                                 <dir-pagination-controls max-size="1000" boundary-links="true"></dir-pagination-controls>
-                                <table class="table table-striped table-hover">
+                                <button class="btn btn-link" ng-click="exportToExcel('#table1')" style="float:right; border: 1px solid; border-radius: 5px; text-decoration: none;">
+                                    <span class="icon-cloud-download"></span> Exportar para Excel
+                                </button>
+                                <table id="table1" class="table table-striped table-hover">
                                     <thead>
                                         <tr>
                                             <th># </th>
@@ -180,11 +170,11 @@
                                     </thead>
                                     <tbody>
                                         <tr dir-paginate="item in tableResult | itemsPerPage: pageSize" current-page="currentPage">
-                                            <td><a href="javascript:;">{{($index + 1) + (currentPage - 1) * pageSize }} </a></td>
-                                            <td><a href="javascript:;">{{item.grupo.nome}} </a></td>
-                                            <td><a href="javascript:;">{{item.usuario.nome}} </a></td>
-                                            <td><a href="javascript:;">{{item.nivelPermissao.nome}} </a></td>
-                                            <td><a href="javascript:window.open('{{item.site.url}}');">{{item.site.nome}}</a></td>
+                                            <td>{{($index + 1) + (currentPage - 1) * pageSize }}</td>
+                                            <td>{{item.grupo.nome}}</td>
+                                            <td>{{item.usuario.nome}}</td>
+                                            <td>{{item.nivelPermissao.nome}}</td>
+                                            <td><a target="_blank" href="{{'/' + item.site.url}}">{{item.site.nome}}</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -213,26 +203,11 @@
                                         </a>
                                     </div>
                                     <div id="collapse1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    
-                                                </div>
-                                                <div class="col-md-6">
-                                                </div>
-                                                <div class="col-md-2">
-                                                    
-                                                </div>
-                                            </div>
+                                        <div class="panel-body">                                            
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label style="width:100%">Grupos:
-                                                        <a href="#" ng-click="OpenUrlNovoGrupo()">
-                                                            <span class="badge pull-right bg-green">
-                                                                <i class="icon-plus" style="font-size: 20px"></i>
-                                                                Adicionar
-                                                            </span>
-                                                        </a>
+                                                        
                                                     </label>
                                                     <ul class="list-group" style="max-height: 300px; overflow: auto">
                                                         <li class="list-group-item" ng-repeat="grupo in Grupos">
@@ -277,14 +252,7 @@
                                     </div>
                                     <div id="collapse2" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                </div>
-                                                <div class="col-md-6">
-                                                </div>
-                                                <div class="col-md-2">                                                    
-                                                </div>
-                                            </div>
+                                            
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label style="width:100%">Sites:</label>
@@ -331,7 +299,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Permissão</h4>
+                        <h4 class="modal-title" id="myModalLabel">Adicionar Permissão</h4>
                     </div>
                     <div class="modal-body">
                         <div class="modal-body">
@@ -339,14 +307,15 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="novoValor">Grupo:</label>
-                                    <tags-input ng-model="users"
+                                    <%--<tags-input ng-model="users"
                                         display-property="Name"
                                         placeholder=" "
                                         add-from-autocomplete-only="true"
                                         replace-spaces-with-dashes="false"
                                         max-tags="1">
                                                 <auto-complete source="GetPeoplePickerSuggestion($query, siteSelecionadoAdmin)" min-length="3" debounce-delay="1000"></auto-complete>
-                                    </tags-input>
+                                    </tags-input>--%>
+                                    <input type="text" ng-model="permissao.nome" class="form-control" placeholder="Informe o nome do grupo"/>
                                 </div>
                             </div>
                             <hr />
