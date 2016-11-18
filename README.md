@@ -1,8 +1,8 @@
-# SafePoint Security
+# <img src="Source%20Code/SafePointSecurity/StyleLibrary/img/logo.png" />
 
 Projeto de software construído em atendimento à disciplina de TCC-2 da <a href="https://www.ucl.br/">Faculdade do Centro Leste</a> - Período 2016/02.
 
-O mesmo trata-se do desenvolvimento de uma ferramenta capaz de auxiliar os profissionais administradores de ambientes SharePoint, a controlar da melhor forma as atividades no gerenciamento de segurança. Com a adoção dessa solução espera-se uma redução significativa dos incidentes relacionados ao controle de segurança e uma expectativa de economia em relação aos custos com consultorias.
+O mesmo trata-se do desenvolvimento de uma web part capaz de auxiliar os profissionais administradores de ambientes SharePoint, a controlar da melhor forma as atividades no gerenciamento de segurança. Com a adoção dessa solução espera-se uma redução significativa dos incidentes relacionados ao controle de segurança e uma expectativa de economia em relação aos custos com consultorias.
 
 
 ## Sumário
