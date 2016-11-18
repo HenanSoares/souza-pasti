@@ -1,30 +1,32 @@
 # SafePoint Security
 
-Projeto de software em atendimento à disciplina de TTC-2 da <a href="https://www.ucl.br/">Faculdade do Centro Leste</a> - 2016/02.
+Projeto de software construído em atendimento à disciplina de TCC-2 da <a href="https://www.ucl.br/">Faculdade do Centro Leste</a> - Período 2016/02.
 
-O mesmo trata-se do desenvolvimento de uma ferramenta capaz de auxiliar os profissionais administradores de ambientes SharePoint, a controlar da melhor forma as atividades no gerenciamento de segurança no ambiente SharePoint. Com a adoção dessa solução espera-se notar uma redução significativa dos incidentes relacionados ao controle de segurança e uma expectativa de economia em relação aos custos com consultorias.
+O mesmo trata-se do desenvolvimento de uma ferramenta capaz de auxiliar os profissionais administradores de ambientes SharePoint, a controlar da melhor forma as atividades no gerenciamento de segurança. Com a adoção dessa solução espera-se uma redução significativa dos incidentes relacionados ao controle de segurança e uma expectativa de economia em relação aos custos com consultorias.
+
 
 ## Sumário
 
 * [Instalação](#instalacao)
 * [Protótipos](#prototipos)
 * [Autores](#autores)
-* [Orientação](#orientacao)
+* [Orientador](#orientador)
+
 
 ## <a name="instalacao"></a> Instalação
 
 Comandos SharePoint Management Shell:
 
-```sh
+```powershell
 Add-SPSolution -LiteralPath <PATH WSP FILE>
 ```
-```sh
+```powershell
 Install-SPSolution -Identity SafePointSecurity.wsp -WebApplication <WEBAPPLICATION NAME> -GACDeployment
 ```
-```sh
+```powershell
 Enable-SPFeature -identity  31d859bc-a61d-4bfc-ba39-08c9982b8a72 -Force
 ```
-```sh
+```powershell
 Enable-SPFeature -identity d98ad088-a33b-4f2a-9548-cafac22c55a7 -Url <URL SITECOLLECTION> -Force
 ```
 
@@ -37,24 +39,25 @@ Interface Web:
 
 ## <a name="prototipos"></a> Protótipos
 
-![](Documentation/Prototipos/Relatorio_Filtros.png)
+![Image1](Documentation/Prototipos/Relatorio_Filtros.png)
 
-![](Documentation/Prototipos/Relatorio_Resultado.png)
+![Image2](Documentation/Prototipos/Relatorio_Resultado.png)
 
-![](Documentation/Prototipos/Administracao_Grupos.png)
+![Image3](Documentation/Prototipos/Administracao_Grupos.png)
 
-![](Documentation/Prototipos/Administracao_Grupos_AdicionarUsuario.png)
+![Image4](Documentation/Prototipos/Administracao_Grupos_AdicionarUsuario.png)
 
-![](Documentation/Prototipos/Administracao_Permissoes.png)
+![Image5](Documentation/Prototipos/Administracao_Permissoes.png)
 
-![](Documentation/Prototipos/Administracao_Permissoes_AdicionarPermissao.png)
+![Image6](Documentation/Prototipos/Administracao_Permissoes_AdicionarPermissao.png)
+
 
 ## <a name="autores"></a> Autores
 
-* **Wilhas Mendes de Souza** - *Desenvolvedor/Analista de Requisitos* - <wilhsms@gmail.com>.
-* **Zaíre Pianzola Pasti** - *Desenvolvedor/Analista de Requisitos* - <zaireppasti@gmail.com>.
+* **Wilhas Mendes de Souza** - *Desenvolvedor/Analista de Requisitos* - <wilhsms@gmail.com>
+* **Zaíre Pianzola Pasti** - *Desenvolvedor/Analista de Requisitos* - <zazapasti@gmail.com>
 
 
-## <a name="orientacao"></a> Orientação
+## <a name="orientador"></a> Orientador
 
-* **André Ribeiro** - *Professor e Coordenador do curso de Sistemas de Informação* - <andrers@ucl.br>.
+* **André Ribeiro** - *Professor e Coordenador do curso de Sistemas de Informação* - <andrers@ucl.br>
