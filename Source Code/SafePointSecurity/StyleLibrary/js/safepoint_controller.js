@@ -22,11 +22,38 @@ myApp.factory('Excel', function ($window) {
     };
 })
 
-myApp.controller('safepointController', function ($scope, $http, $filter, Excel, $timeout) {
+myApp.controller('safepointController', function ($scope, $http, $filter, Excel, $timeout, $compile) {
     //Pra dar sorte. ;)
     $scope.helloworld = "Hello World!!";
 
+    $scope.safeApply = function (fn) {
+        var phase = this.$root.$$phase;
+        if (phase == '$apply' || phase == '$digest') {
+            if (fn && (typeof (fn) === 'function')) {
+                fn();
+            }
+        } else {
+            this.$apply(fn);
+        }
+    };
+
+
     $scope.exportToExcel = function (tableId) { // ex: '#my-table'
+
+        //var template = "<table class='table table-striped table-hover'>" +
+        //            "<thead>" +
+        //                "<tr><th>#</th><th>Grupo</th><th>Usuário</th><th>Permissão</th><th>Site</th></tr>" +
+        //            "</thead>" +
+        //            "<tbody>" +
+        //                "<tr ng-repeat=\"item in tableResult\"><td>{{($index + 1)}}</td><td>{{item.grupo.nome}}</td><td>{{item.usuario.nome}}</td><td>{{item.nivelPermissao.nome}}</td><td><a target='_blank' href=\"{{'/' + item.site.url}}\">{{item.site.nome}}</a></td></tr>" +
+        //            "</tbody>" +
+        //            "</table>";
+        //var linkFunction = $compile(template);
+        //var result = linkFunction($scope);
+
+        //if (!$scope.$$phase) $scope.$digest();
+        //console.log(result.html());
+
         $scope.exportHref = Excel.tableToExcel(tableId, 'SafePoint');
         $timeout(function () { location.href = $scope.exportHref; }, 100); // trigger download
     }
@@ -120,7 +147,7 @@ myApp.controller('safepointController', function ($scope, $http, $filter, Excel,
 
     //Coletando itens unicos do array de permissoes:
     $scope.ColetarFiltros = function (key) {
-        return $scope._DistinctArray($scope.permissoes, key);
+        return _.sortBy($scope._DistinctArray($scope.permissoes, key), 'nome');
     };
 
     $scope._DistinctArray = function (array, key) {
@@ -312,17 +339,17 @@ myApp.controller('safepointController', function ($scope, $http, $filter, Excel,
     };
 
     $scope._CarregarSitePermissoes = function (site, array) {
-        return _.unique(_.map(_.filter(array, function (permissao) {
+        return _.sortBy(_.unique(_.map(_.filter(array, function (permissao) {
             return permissao.site.id == site.id;
         }), function (mapItem) {
             var principalName = (!mapItem.grupo ? mapItem.usuario.nome : mapItem.grupo.nome);
             return { nome: principalName, permissao: mapItem.nivelPermissao.nome };
-        }), 'nome');
+        }), 'nome'), 'nome');
     };
 
     //Metodo de adição de permissao
     $scope.permissao = new PermissaoViewModel();
-    $scope.AdicionarPermissao = function () {        
+    $scope.AdicionarPermissao = function () {
         $http.post('/SitePages/SafePointSecurity/SPS_Service.aspx/AddPermissao', { 'viewModel': $scope.permissao })
             .success(function (data) {
                 $scope.GetPermissoes().success(function (data) {
@@ -332,9 +359,9 @@ myApp.controller('safepointController', function ($scope, $http, $filter, Excel,
                     });
 
                     $scope.SitePermissoes = $scope._CarregarSitePermissoes($scope.siteSelecionadoAdmin, $scope.permissoes);
+                    $scope.permissao = new PermissaoViewModel();
 
                     //$scope.users = [];
-                    $scope.permissao = new PermissaoViewModel();
 
                     $scope.Grupos = $scope.ColetarFiltros('grupo');
                     $scope.FiltrarItens();

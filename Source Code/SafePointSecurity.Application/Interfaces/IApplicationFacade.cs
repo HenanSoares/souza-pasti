@@ -13,5 +13,9 @@ namespace SafePointSecurity.Application.Interfaces
         List<Permissao> GetPermissoes(Connection connection);
 
         List<Model.Site> GetSites(Connection connection, bool onlyParents = false);
+
+        bool AdicionarPermissaoSite(string urlSite, string nomeGrupo, string nomePermissao);
+
+        bool RemoverPermissaoSite(string urlSite, string nomeGrupo);
     }
 }

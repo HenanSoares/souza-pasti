@@ -10,6 +10,8 @@ namespace SafePointSecurity.Infrastructure.Interfaces
 {
     public interface ISiteRepository : IBaseRepository<Site>
     {
+        bool AdicionarPermissao(string urlSite, string nomeGrupo, string nomePermissao);
 
+        bool RemoverPermissao(string urlSite, string nomeGrupo);
     }
 }

@@ -96,5 +96,15 @@ namespace SafePointSecurity.Infrastructure.Repository.SqlServer
         {
             throw new NotImplementedException();
         }
+        
+        public bool AdicionarPermissao(string urlSite, string nomeGrupo, string nomePermissao)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoverPermissao(string urlSite, string nomeGrupo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

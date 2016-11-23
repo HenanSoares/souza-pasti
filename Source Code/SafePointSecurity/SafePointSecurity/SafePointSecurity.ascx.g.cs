@@ -436,162 +436,179 @@ namespace SafePointSecurity {
                         "s=\"table-scrollable report-table-result\">\r\n                                <dir-" +
                         "pagination-controls max-size=\"1000\" boundary-links=\"true\"></dir-pagination-contr" +
                         "ols>\r\n                                <button class=\"btn btn-link\" ng-click=\"exp" +
-                        "ortToExcel(\'#table1\')\" style=\"float:right; border: 1px solid; border-radius: 5px" +
-                        "; text-decoration: none;\">\r\n                                    <span class=\"ico" +
-                        "n-cloud-download\"></span> Exportar para Excel\r\n                                <" +
-                        "/button>\r\n                                <table id=\"table1\" class=\"table table-" +
-                        "striped table-hover\">\r\n                                    <thead>\r\n            " +
-                        "                            <tr>\r\n                                            <t" +
-                        "h># </th>\r\n                                            <th ng-click=\"Ordenar(\'gr" +
-                        "upo.nome\')\">Grupo </th>\r\n                                            <th ng-clic" +
-                        "k=\"Ordenar(\'usuario.nome\')\">Usuário </th>\r\n                                     " +
-                        "       <th ng-click=\"Ordenar(\'permissao.nome\')\">Permissão </th>\r\n               " +
-                        "                             <th ng-click=\"Ordenar(\'site.nome\')\">Site </th>\r\n   " +
-                        "                                     </tr>\r\n                                    " +
-                        "</thead>\r\n                                    <tbody>\r\n                         " +
-                        "               <tr dir-paginate=\"item in tableResult | itemsPerPage: pageSize\" c" +
-                        "urrent-page=\"currentPage\">\r\n                                            <td>{{($" +
-                        "index + 1) + (currentPage - 1) * pageSize }}</td>\r\n                             " +
-                        "               <td>{{item.grupo.nome}}</td>\r\n                                   " +
-                        "         <td>{{item.usuario.nome}}</td>\r\n                                       " +
-                        "     <td>{{item.nivelPermissao.nome}}</td>\r\n                                    " +
-                        "        <td><a target=\"_blank\" href=\"{{\'/\' + item.site.url}}\">{{item.site.nome}}" +
-                        "</a></td>\r\n                                        </tr>\r\n                      " +
-                        "              </tbody>\r\n                                </table>\r\n              " +
-                        "                  <dir-pagination-controls max-size=\"10\" boundary-links=\"true\"><" +
-                        "/dir-pagination-controls>\r\n                            </div>\r\n                 " +
-                        "       </div>\r\n                    </div>\r\n                </div>\r\n            <" +
-                        "/div>\r\n            <div id=\"cadastro\" class=\"tab-pane fade\">\r\n                <d" +
-                        "iv class=\"filtros-bordered\">\r\n                    <div class=\"title\">\r\n         " +
-                        "               <div class=\"caption\">\r\n                            <i class=\" ico" +
-                        "n-layers font-green\"></i>\r\n                            <span class=\"caption-subj" +
-                        "ect font-green bold uppercase\">Cadastros</span>\r\n                            <di" +
-                        "v class=\"caption-desc font-grey-cascade\">Selecione o cadastro que deseja gerenci" +
-                        "ar.</div>\r\n                        </div>\r\n                    </div>\r\n         " +
-                        "           <div class=\"body\">\r\n                        <div class=\"row\">\r\n      " +
-                        "                      <div class=\"panel-group\" id=\"accordion\">\r\n                " +
-                        "                <div class=\"panel panel-default\">\r\n                             " +
-                        "       <div class=\"panel-heading bg-green\">\r\n                                   " +
-                        "     <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse1\">\r\n    " +
-                        "                                        <h4 class=\"panel-title\">Grupos</h4>\r\n   " +
-                        "                                     </a>\r\n                                    <" +
-                        "/div>\r\n                                    <div id=\"collapse1\" class=\"panel-coll" +
-                        "apse collapse\">\r\n                                        <div class=\"panel-body\"" +
-                        ">                                            \r\n                                 " +
-                        "           <div class=\"row\">\r\n                                                <d" +
-                        "iv class=\"col-md-4\">\r\n                                                    <label" +
-                        " style=\"width:100%\">Grupos:\r\n                                                   " +
-                        "     \r\n                                                    </label>\r\n           " +
-                        "                                         <ul class=\"list-group\" style=\"max-heigh" +
-                        "t: 300px; overflow: auto\">\r\n                                                    " +
-                        "    <li class=\"list-group-item\" ng-repeat=\"grupo in Grupos\">\r\n                  " +
-                        "                                          <a href=\"javascript:;\" ng-click=\"Prenc" +
-                        "heMembros(grupo)\">{{grupo.nome}} </a>\r\n                                         " +
-                        "                   <span class=\"badge\" ng-show=\"grupo.usuarios && grupo.usuarios" +
-                        ".length > 0\">{{grupo.usuarios.length}} \r\n                                       " +
-                        "                         <i class=\" icon-users\"></i>\r\n                          " +
-                        "                                  </span>\r\n                                     " +
-                        "                   </li>\r\n                                                    </" +
-                        "ul>\r\n                                                </div>\r\n                   " +
-                        "                             <div class=\"col-md-8\">\r\n                           " +
-                        "                         <label style=\"width:100%\">Membros{{\' de \' + grupoSeleci" +
-                        "onadoAdmin.nome}}:\r\n                                                        <a h" +
-                        "ref=\"#\" ng-click=\"OpenUrlAddUser(grupoSelecionadoAdmin)\" ng-show=\"grupoSeleciona" +
-                        "doAdmin != false\">\r\n                                                            " +
-                        "<span class=\"badge pull-right bg-greenligth\">\r\n                                 " +
-                        "                               <i class=\" icon-plus\" style=\"font-size: 20px\"></i" +
-                        ">\r\n                                                                Adicionar\r\n  " +
-                        "                                                          </span>\r\n             " +
-                        "                                           </a>\r\n                               " +
-                        "                     </label>\r\n                                                 " +
-                        "   <ul class=\"list-group\" style=\"max-height: 300px; overflow: auto\">\r\n          " +
-                        "                                              <li class=\"list-group-item\" ng-rep" +
-                        "eat=\"usuario in MembrosGrupo\">\r\n                                                " +
-                        "            <a href=\"javascript:;\">{{usuario.nome}} </a>\r\n                      " +
-                        "                                      <span class=\"badge bg-red\" ng-click=\"$pare" +
-                        "nt.RemoverUsuario(usuario, $parent.grupoSelecionadoAdmin)\">\r\n                   " +
-                        "                                             <i class=\" icon-user-unfollow\" styl" +
-                        "e=\"font-size: 16px\"></i>\r\n                                                      " +
-                        "      </span>\r\n\r\n                                                        </li>\r\n" +
-                        "                                                    </ul>\r\n                     " +
-                        "                           </div>\r\n                                            <" +
-                        "/div>\r\n                                        </div>\r\n                         " +
-                        "           </div>\r\n                                </div>\r\n\r\n                   " +
-                        "             <div class=\"panel panel-default\">\r\n                                " +
-                        "    <div class=\"panel-heading bg-blue\">\r\n                                       " +
-                        " <h4 class=\"panel-title\">\r\n                                            <a data-t" +
-                        "oggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse2\">\r\n                  " +
-                        "                              <h4 class=\"panel-title\">Permissões</h4>\r\n         " +
-                        "                                   </a>\r\n                                       " +
-                        " </h4>\r\n                                    </div>\r\n                            " +
-                        "        <div id=\"collapse2\" class=\"panel-collapse collapse\">\r\n                  " +
-                        "                      <div class=\"panel-body\">\r\n                                " +
-                        "            \r\n                                            <div class=\"row\">\r\n   " +
-                        "                                             <div class=\"col-md-4\">\r\n           " +
-                        "                                         <label style=\"width:100%\">Sites:</label" +
-                        ">\r\n                                                    <multiselect-searchtree\r\n" +
-                        "                                                        multi-select=\"false\"\r\n  " +
-                        "                                                      data-input-model=\"treeview" +
-                        "\"\r\n                                                        data-output-model=\"si" +
-                        "teSelecionadoAdmin\"\r\n                                                        dat" +
-                        "a-callback=\"SelecionarSite(item, selectedItems)\"\r\n                              " +
-                        "                          data-select-only-leafs=\"false\">\r\n                     " +
-                        "                               </multiselect-searchtree>\r\n                      " +
-                        "                          </div>\r\n                                              " +
-                        "  <div class=\"col-md-8\">\r\n                                                    <l" +
-                        "abel style=\"width:100%\">Permissões{{\' de \' + siteSelecionadoAdmin.nome}}:\r\n     " +
-                        "                                                   <a href=\"#\" ng-show=\"siteSele" +
-                        "cionadoAdmin != false\" data-toggle=\"modal\" data-target=\"#myModal\" class=\"pull-ri" +
-                        "ght\">\r\n                                                            <span class=\"" +
-                        "badge pull-right bg-greenligth\">\r\n                                              " +
-                        "                  <i class=\" icon-plus\" style=\"font-size: 20px\"></i>\r\n          " +
-                        "                                                      Adicionar\r\n               " +
-                        "                                             </span>\r\n                          " +
-                        "                              </a>\r\n                                            " +
-                        "        </label>\r\n                                                    <ul class=" +
-                        "\"list-group\" style=\"max-height: 300px; overflow: auto\">\r\n                       " +
-                        "                                 <li class=\"list-group-item\" ng-repeat=\"item in " +
-                        "SitePermissoes\">\r\n                                                            <a" +
-                        " href=\"javascript:;\">{{item.nome}} - {{item.permissao}} </a>\r\n                  " +
-                        "                                          <span class=\"badge bg-red\" ng-click=\"$" +
-                        "parent.RemoverPermissao(item, $parent.siteSelecionadoAdmin)\">\r\n                 " +
-                        "                                               <i class=\" icon-user-unfollow\" st" +
-                        "yle=\"font-size: 16px\"></i>\r\n                                                    " +
-                        "        </span>\r\n\r\n                                                        </li>" +
-                        "\r\n                                                    </ul>\r\n                   " +
-                        "                             </div>\r\n                                           " +
-                        " </div>\r\n                                        </div>\r\n                       " +
-                        "             </div>\r\n                                </div>\r\n                   " +
-                        "         </div>\r\n                        </div>\r\n                    </div>\r\n   " +
-                        "             </div>\r\n            </div>\r\n        </div>\r\n        <!-- Modal -->\r" +
-                        "\n        <div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-l" +
-                        "abelledby=\"myModalLabel\">\r\n            <div class=\"modal-dialog\" role=\"document\"" +
-                        ">\r\n                <div class=\"modal-content\">\r\n                    <div class=\"" +
-                        "modal-header\">\r\n                        <button type=\"button\" class=\"close\" data" +
-                        "-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></but" +
-                        "ton>\r\n                        <h4 class=\"modal-title\" id=\"myModalLabel\">Adiciona" +
-                        "r Permissão</h4>\r\n                    </div>\r\n                    <div class=\"mo" +
-                        "dal-body\">\r\n                        <div class=\"modal-body\">\r\n\r\n                " +
-                        "            <div class=\"row\">\r\n                                <div class=\"col-m" +
-                        "d-12\">\r\n                                    <label for=\"novoValor\">Grupo:</label" +
-                        ">\r\n                                    \r\n                                    <in" +
-                        "put type=\"text\" ng-model=\"permissao.nome\" class=\"form-control\" placeholder=\"Info" +
-                        "rme o nome do grupo\"/>\r\n                                </div>\r\n                " +
-                        "            </div>\r\n                            <hr />\r\n                        " +
-                        "    <div class=\"row\">\r\n                                <div class=\"col-md-12\">\r\n" +
-                        "                                    <label for=\"novoValor2\">Permissão:</label>\r\n" +
-                        "                                    <div class=\"radio\" ng-repeat=\"item in Niveis" +
-                        "PermissaoAdm\">\r\n                                        <label><input type=\"radi" +
-                        "o\" name=\"optradio\" ng-model=\"$parent.permissao.nivelPermissao\" ng-value=\"item.no" +
-                        "me\"/>{{item.nome}}</label>\r\n                                    </div>          " +
-                        "                          \r\n                                </div>\r\n            " +
-                        "                </div>\r\n\r\n                        </div>\r\n                    </" +
-                        "div>\r\n                    <div class=\"modal-footer\">\r\n                        <b" +
-                        "utton type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Fechar</button>" +
-                        "\r\n                        <button id=\"btAtualizarValor\" type=\"button\" class=\"btn" +
-                        " btn-primary\" data-dismiss=\"modal\" ng-click=\"AdicionarPermissao()\">Salvar</butto" +
-                        "n>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    " +
-                        "    </div>\r\n    </div>\r\n</div>\r\n"));
+                        "ortToExcel(\'#table1\')\" ng-hide=\"(!tableResult)\" style=\"float: right; border: 1px" +
+                        " solid; border-radius: 5px; text-decoration: none;\">\r\n                          " +
+                        "          <span class=\"icon-cloud-download\"></span> Exportar para Excel\r\n       " +
+                        "                         </button>\r\n                                <table id=\"t" +
+                        "able1\" class=\'table table-striped table-hover\' ng-hide=\"true\">\r\n                " +
+                        "                    <thead>\r\n                                        <tr>\r\n     " +
+                        "                                       <th>#</th>\r\n                             " +
+                        "               <th>Grupo</th>\r\n                                            <th>U" +
+                        "suário</th>\r\n                                            <th>Permissão</th>\r\n   " +
+                        "                                         <th>Site</th>\r\n                        " +
+                        "                </tr>\r\n                                    </thead>\r\n           " +
+                        "                         <tbody>\r\n                                        <tr ng" +
+                        "-repeat=\'item in tableResult\'>\r\n                                            <td>" +
+                        "{{($index + 1)}}</td>\r\n                                            <td>{{item.gr" +
+                        "upo.nome}}</td>\r\n                                            <td>{{item.usuario." +
+                        "nome}}</td>\r\n                                            <td>{{item.nivelPermiss" +
+                        "ao.nome}}</td>\r\n                                            <td><a target=\'_blan" +
+                        "k\' href=\"{{\'/\' + item.site.url}}\">{{item.site.nome}}</a></td>\r\n                 " +
+                        "                       </tr>\r\n                                    </tbody>\r\n    " +
+                        "                            </table>\r\n                                <table cla" +
+                        "ss=\"table table-striped table-hover\">\r\n                                    <thea" +
+                        "d>\r\n                                        <tr>\r\n                              " +
+                        "              <th># </th>\r\n                                            <th ng-cl" +
+                        "ick=\"Ordenar(\'grupo.nome\')\">Grupo </th>\r\n                                       " +
+                        "     <th ng-click=\"Ordenar(\'usuario.nome\')\">Usuário </th>\r\n                     " +
+                        "                       <th ng-click=\"Ordenar(\'permissao.nome\')\">Permissão </th>\r" +
+                        "\n                                            <th ng-click=\"Ordenar(\'site.nome\')\"" +
+                        ">Site </th>\r\n                                        </tr>\r\n                    " +
+                        "                </thead>\r\n                                    <tbody>\r\n         " +
+                        "                               <tr dir-paginate=\"item in tableResult | itemsPerP" +
+                        "age: pageSize\" current-page=\"currentPage\">\r\n                                    " +
+                        "        <td>{{($index + 1) + (currentPage - 1) * pageSize }}</td>\r\n             " +
+                        "                               <td>{{item.grupo.nome}}</td>\r\n                   " +
+                        "                         <td>{{item.usuario.nome}}</td>\r\n                       " +
+                        "                     <td>{{item.nivelPermissao.nome}}</td>\r\n                    " +
+                        "                        <td><a target=\"_blank\" href=\"{{\'/\' + item.site.url}}\">{{" +
+                        "item.site.nome}}</a></td>\r\n                                        </tr>\r\n      " +
+                        "                              </tbody>\r\n                                </table>" +
+                        "\r\n                                <dir-pagination-controls max-size=\"10\" boundar" +
+                        "y-links=\"true\"></dir-pagination-controls>\r\n                            </div>\r\n " +
+                        "                       </div>\r\n                    </div>\r\n                </div" +
+                        ">\r\n            </div>\r\n            <div id=\"cadastro\" class=\"tab-pane fade\">\r\n  " +
+                        "              <div class=\"filtros-bordered\">\r\n                    <div class=\"ti" +
+                        "tle\">\r\n                        <div class=\"caption\">\r\n                          " +
+                        "  <i class=\" icon-layers font-green\"></i>\r\n                            <span cla" +
+                        "ss=\"caption-subject font-green bold uppercase\">Cadastros</span>\r\n               " +
+                        "             <div class=\"caption-desc font-grey-cascade\">Selecione o cadastro qu" +
+                        "e deseja gerenciar.</div>\r\n                        </div>\r\n                    <" +
+                        "/div>\r\n                    <div class=\"body\">\r\n                        <div clas" +
+                        "s=\"row\">\r\n                            <div class=\"panel-group\" id=\"accordion\">\r\n" +
+                        "                                <div class=\"panel panel-default\">\r\n             " +
+                        "                       <div class=\"panel-heading bg-green\">\r\n                   " +
+                        "                     <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#c" +
+                        "ollapse1\">\r\n                                            <h4 class=\"panel-title\">" +
+                        "Grupos</h4>\r\n                                        </a>\r\n                     " +
+                        "               </div>\r\n                                    <div id=\"collapse1\" c" +
+                        "lass=\"panel-collapse collapse\">\r\n                                        <div cl" +
+                        "ass=\"panel-body\">\r\n                                            <div class=\"row\">" +
+                        "\r\n                                                <div class=\"col-md-4\">\r\n      " +
+                        "                                              <label style=\"width: 100%\">\r\n     " +
+                        "                                                   Grupos:\r\n                    " +
+                        "                                    \r\n                                          " +
+                        "          </label>\r\n                                                    <ul clas" +
+                        "s=\"list-group\" style=\"max-height: 300px; overflow: auto\">\r\n                     " +
+                        "                                   <li class=\"list-group-item\" ng-repeat=\"grupo " +
+                        "in Grupos\">\r\n                                                            <a href" +
+                        "=\"javascript:;\" ng-click=\"PrencheMembros(grupo)\">{{grupo.nome}} </a>\r\n          " +
+                        "                                                  <span class=\"badge\" ng-show=\"g" +
+                        "rupo.usuarios && grupo.usuarios.length > 0\">{{grupo.usuarios.length}} \r\n        " +
+                        "                                                        <i class=\" icon-users\"><" +
+                        "/i>\r\n                                                            </span>\r\n      " +
+                        "                                                  </li>\r\n                       " +
+                        "                             </ul>\r\n                                            " +
+                        "    </div>\r\n                                                <div class=\"col-md-8" +
+                        "\">\r\n                                                    <label style=\"width: 100" +
+                        "%\">\r\n                                                        Membros{{\' de \' + g" +
+                        "rupoSelecionadoAdmin.nome}}:\r\n                                                  " +
+                        "      <a href=\"#\" ng-click=\"OpenUrlAddUser(grupoSelecionadoAdmin)\" ng-show=\"grup" +
+                        "oSelecionadoAdmin != false\">\r\n                                                  " +
+                        "          <span class=\"badge pull-right bg-greenligth\">\r\n                       " +
+                        "                                         <i class=\" icon-plus\" style=\"font-size:" +
+                        " 20px\"></i>\r\n                                                                Adi" +
+                        "cionar\r\n                                                            </span>\r\n   " +
+                        "                                                     </a>\r\n                     " +
+                        "                               </label>\r\n                                       " +
+                        "             <ul class=\"list-group\" style=\"max-height: 300px; overflow: auto\">\r\n" +
+                        "                                                        <li class=\"list-group-it" +
+                        "em\" ng-repeat=\"usuario in MembrosGrupo\">\r\n                                      " +
+                        "                      <a href=\"javascript:;\">{{usuario.nome}} </a>\r\n            " +
+                        "                                                <span class=\"badge bg-red\" ng-cl" +
+                        "ick=\"$parent.RemoverUsuario(usuario, $parent.grupoSelecionadoAdmin)\">\r\n         " +
+                        "                                                       <i class=\" icon-user-unfo" +
+                        "llow\" style=\"font-size: 16px\"></i>\r\n                                            " +
+                        "                </span>\r\n\r\n                                                     " +
+                        "   </li>\r\n                                                    </ul>\r\n           " +
+                        "                                     </div>\r\n                                   " +
+                        "         </div>\r\n                                        </div>\r\n               " +
+                        "                     </div>\r\n                                </div>\r\n\r\n         " +
+                        "                       <div class=\"panel panel-default\">\r\n                      " +
+                        "              <div class=\"panel-heading bg-blue\">\r\n                             " +
+                        "           <h4 class=\"panel-title\">\r\n                                           " +
+                        " <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse2\">\r\n        " +
+                        "                                        <h4 class=\"panel-title\">Permissões</h4>\r" +
+                        "\n                                            </a>\r\n                             " +
+                        "           </h4>\r\n                                    </div>\r\n                  " +
+                        "                  <div id=\"collapse2\" class=\"panel-collapse collapse\">\r\n        " +
+                        "                                <div class=\"panel-body\">\r\n\r\n                    " +
+                        "                        <div class=\"row\">\r\n                                     " +
+                        "           <div class=\"col-md-4\">\r\n                                             " +
+                        "       <label style=\"width: 100%\">Sites:</label>\r\n                              " +
+                        "                      <multiselect-searchtree\r\n                                 " +
+                        "                       multi-select=\"false\"\r\n                                   " +
+                        "                     data-input-model=\"treeview\"\r\n                              " +
+                        "                          data-output-model=\"siteSelecionadoAdmin\"\r\n            " +
+                        "                                            data-callback=\"SelecionarSite(item, " +
+                        "selectedItems)\"\r\n                                                        data-se" +
+                        "lect-only-leafs=\"false\">\r\n                                                    </" +
+                        "multiselect-searchtree>\r\n                                                </div>\r" +
+                        "\n                                                <div class=\"col-md-8\">\r\n       " +
+                        "                                             <label style=\"width: 100%\">\r\n      " +
+                        "                                                  Permissões{{\' de \' + siteSelec" +
+                        "ionadoAdmin.nome}}:\r\n                                                        <a " +
+                        "href=\"#\" ng-show=\"siteSelecionadoAdmin != false\" data-toggle=\"modal\" data-target" +
+                        "=\"#myModal\" class=\"pull-right\">\r\n                                               " +
+                        "             <span class=\"badge pull-right bg-greenligth\">\r\n                    " +
+                        "                                            <i class=\" icon-plus\" style=\"font-si" +
+                        "ze: 20px\"></i>\r\n                                                                " +
+                        "Adicionar\r\n                                                            </span>\r\n" +
+                        "                                                        </a>\r\n                  " +
+                        "                                  </label>\r\n                                    " +
+                        "                <ul class=\"list-group\" style=\"max-height: 300px; overflow: auto\"" +
+                        ">\r\n                                                        <li class=\"list-group" +
+                        "-item\" ng-repeat=\"item in SitePermissoes\">\r\n                                    " +
+                        "                        <a href=\"javascript:;\">{{item.nome}} - {{item.permissao}" +
+                        "} </a>\r\n                                                            <span class=" +
+                        "\"badge bg-red\" ng-click=\"$parent.RemoverPermissao(item, $parent.siteSelecionadoA" +
+                        "dmin)\">\r\n                                                                <i clas" +
+                        "s=\" icon-user-unfollow\" style=\"font-size: 16px\"></i>\r\n                          " +
+                        "                                  </span>\r\n\r\n                                   " +
+                        "                     </li>\r\n                                                    " +
+                        "</ul>\r\n                                                </div>\r\n                 " +
+                        "                           </div>\r\n                                        </div" +
+                        ">\r\n                                    </div>\r\n                                <" +
+                        "/div>\r\n                            </div>\r\n                        </div>\r\n     " +
+                        "               </div>\r\n                </div>\r\n            </div>\r\n        </div" +
+                        ">\r\n        <!-- Modal -->\r\n        <div class=\"modal fade\" id=\"myModal\" tabindex" +
+                        "=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\r\n            <div class=\"mod" +
+                        "al-dialog\" role=\"document\">\r\n                <div class=\"modal-content\">\r\n      " +
+                        "              <div class=\"modal-header\">\r\n                        <button type=\"" +
+                        "button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=" +
+                        "\"true\">&times;</span></button>\r\n                        <h4 class=\"modal-title\" " +
+                        "id=\"myModalLabel\">Adicionar Permissão</h4>\r\n                    </div>\r\n        " +
+                        "            <div class=\"modal-body\">\r\n                        <div class=\"modal-" +
+                        "body\">\r\n\r\n                            <div class=\"row\">\r\n                       " +
+                        "         <div class=\"col-md-12\">\r\n                                    <label for" +
+                        "=\"novoValor\">Grupo:</label>\r\n                                    \r\n             " +
+                        "                       <input type=\"text\" ng-model=\"permissao.nome\" class=\"form-" +
+                        "control\" placeholder=\"Informe o nome do grupo\" />\r\n                             " +
+                        "   </div>\r\n                            </div>\r\n                            <hr /" +
+                        ">\r\n                            <div class=\"row\">\r\n                              " +
+                        "  <div class=\"col-md-12\">\r\n                                    <label for=\"novoV" +
+                        "alor2\">Permissão:</label>\r\n                                    <div class=\"radio" +
+                        "\" ng-repeat=\"item in NiveisPermissaoAdm\">\r\n                                     " +
+                        "   <label>\r\n                                            <input type=\"radio\" name" +
+                        "=\"optradio\" ng-model=\"$parent.permissao.nivelPermissao\" ng-value=\"item.nome\" />{" +
+                        "{item.nome}}</label>\r\n                                    </div>\r\n              " +
+                        "                  </div>\r\n                            </div>\r\n\r\n                " +
+                        "        </div>\r\n                    </div>\r\n                    <div class=\"moda" +
+                        "l-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default" +
+                        "\" data-dismiss=\"modal\">Fechar</button>\r\n                        <button id=\"btAt" +
+                        "ualizarValor\" type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" ng-clic" +
+                        "k=\"AdicionarPermissao()\">Salvar</button>\r\n                    </div>\r\n          " +
+                        "      </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

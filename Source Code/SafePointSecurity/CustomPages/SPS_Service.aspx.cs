@@ -108,58 +108,59 @@ namespace SafePointSecurity
         {
             try
             {
-                #region Connection
-                Connection connection = Connection.Instance;
-                connection.ConnectionString = VisualWebPart1._connectionString;
-                connection.User = VisualWebPart1._username;
-                connection.Password = VisualWebPart1._password;
-                #endregion
+                //#region Connection
+                //Connection connection = Connection.Instance;
+                //connection.ConnectionString = VisualWebPart1._connectionString;
+                //connection.User = VisualWebPart1._username;
+                //connection.Password = VisualWebPart1._password;
+                //#endregion
 
-                //IApplicationFacade application = new ApplicationFacade();
+                IApplicationFacade application = new ApplicationFacade();
+                application.AdicionarPermissaoSite(viewModel.site, viewModel.nome, viewModel.nivelPermissao);
                 //var list = new List<Site>();
 
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
-                    using (SPWeb web = new SPSite(SPContext.Current.Site.ID).OpenWeb(String.Concat(@"/", viewModel.site)))
-                    {
-                        var anterior = web.AllowUnsafeUpdates;
-                        web.AllowUnsafeUpdates = true;
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
+                //    using (SPWeb web = new SPSite(SPContext.Current.Site.ID).OpenWeb(String.Concat(@"/", viewModel.site)))
+                //    {
+                //        var anterior = web.AllowUnsafeUpdates;
+                //        web.AllowUnsafeUpdates = true;
 
-                        //Criar grupo:
-                        SPGroup group = null;                        
-                        try
-                        {
-                            group = web.SiteGroups[viewModel.nome];
-                        }
-                        catch (Exception)
-                        {
-                            if (group == null)
-                            {
-                                web.SiteGroups.Add(viewModel.nome, SPContext.Current.Web.CurrentUser, web.Author, "Your Group Description");
-                                group = web.SiteGroups[viewModel.nome];
-                            }
-                        }
+                //        //Criar grupo:
+                //        SPGroup group = null;                        
+                //        try
+                //        {
+                //            group = web.SiteGroups[viewModel.nome];
+                //        }
+                //        catch (Exception)
+                //        {
+                //            if (group == null)
+                //            {
+                //                web.SiteGroups.Add(viewModel.nome, SPContext.Current.Web.CurrentUser, web.Author, "Your Group Description");
+                //                group = web.SiteGroups[viewModel.nome];
+                //            }
+                //        }
 
 
-                        // Adicionar permissão:
-                        SPRoleType type = SPRoleType.None;
-                        switch (viewModel.nivelPermissao)
-                        {
-                            case "Contribuição": type = SPRoleType.Contributor; break;
-                            case "Controle Total": type = SPRoleType.Administrator; break;
-                            case "Leitura": type = SPRoleType.Reader; break;
-                            case "Edição": type = SPRoleType.Editor; break;
-                            case "Designer": type = SPRoleType.WebDesigner; break;
-                        }
-                        SPRoleDefinition roleDefinition = web.RoleDefinitions.GetByType(type);
+                //        // Adicionar permissão:
+                //        SPRoleType type = SPRoleType.None;
+                //        switch (viewModel.nivelPermissao)
+                //        {
+                //            case "Contribuição": type = SPRoleType.Contributor; break;
+                //            case "Controle Total": type = SPRoleType.Administrator; break;
+                //            case "Leitura": type = SPRoleType.Reader; break;
+                //            case "Edição": type = SPRoleType.Editor; break;
+                //            case "Designer": type = SPRoleType.WebDesigner; break;
+                //        }
+                //        SPRoleDefinition roleDefinition = web.RoleDefinitions.GetByType(type);
 
-                        SPRoleAssignment roleAssignment = new SPRoleAssignment(group);
-                        roleAssignment.RoleDefinitionBindings.Add(roleDefinition);
-                        web.RoleAssignments.Add(roleAssignment);
-                        web.Update();
-                        web.AllowUnsafeUpdates = !anterior;
-                    }
-                });
+                //        SPRoleAssignment roleAssignment = new SPRoleAssignment(group);
+                //        roleAssignment.RoleDefinitionBindings.Add(roleDefinition);
+                //        web.RoleAssignments.Add(roleAssignment);
+                //        web.Update();
+                //        web.AllowUnsafeUpdates = !anterior;
+                //    }
+                //});
 
 
                 return JsonConvert.SerializeObject(
@@ -180,36 +181,38 @@ namespace SafePointSecurity
         {
             try
             {
-                #region Connection
-                Connection connection = Connection.Instance;
-                connection.ConnectionString = VisualWebPart1._connectionString;
-                connection.User = VisualWebPart1._username;
-                connection.Password = VisualWebPart1._password;
-                #endregion
+                //#region Connection
+                //Connection connection = Connection.Instance;
+                //connection.ConnectionString = VisualWebPart1._connectionString;
+                //connection.User = VisualWebPart1._username;
+                //connection.Password = VisualWebPart1._password;
+                //#endregion
 
-                //IApplicationFacade application = new ApplicationFacade();
+                IApplicationFacade application = new ApplicationFacade();
+
+                application.RemoverPermissaoSite(viewModel.site, viewModel.nome);
                 //var list = new List<Site>();
 
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
-                    using (SPWeb web = new SPSite(SPContext.Current.Site.ID).OpenWeb(String.Concat(@"/", viewModel.site)))
-                    {
-                        var anterior = web.AllowUnsafeUpdates;
-                        web.AllowUnsafeUpdates = true;
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
+                //    using (SPWeb web = new SPSite(SPContext.Current.Site.ID).OpenWeb(String.Concat(@"/", viewModel.site)))
+                //    {
+                //        var anterior = web.AllowUnsafeUpdates;
+                //        web.AllowUnsafeUpdates = true;
 
-                        try
-                        {
-                            web.RoleAssignments.Remove(web.SiteGroups[viewModel.nome]);
-                        }
-                        catch (Exception)
-                        {
-                            web.RoleAssignments.Remove(web.EnsureUser(viewModel.nome));
-                        }
+                //        try
+                //        {
+                //            web.RoleAssignments.Remove(web.SiteGroups[viewModel.nome]);
+                //        }
+                //        catch (Exception)
+                //        {
+                //            web.RoleAssignments.Remove(web.EnsureUser(viewModel.nome));
+                //        }
 
-                        web.Update();
-                        web.AllowUnsafeUpdates = !anterior;
-                    }
-                });
+                //        web.Update();
+                //        web.AllowUnsafeUpdates = !anterior;
+                //    }
+                //});
 
 
                 return JsonConvert.SerializeObject(

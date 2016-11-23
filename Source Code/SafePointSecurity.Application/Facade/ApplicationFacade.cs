@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SafePointSecurity.Infrastructure.Interfaces;
 using SafePointSecurity.Infrastructure.Repository.SqlServer;
+using SP = SafePointSecurity.Infrastructure.Repository.Sharepoint;
 using SafePointSecurity.Common.Util;
 
 namespace SafePointSecurity.Application.Facade
@@ -14,6 +15,7 @@ namespace SafePointSecurity.Application.Facade
     {
         private IPermissaoRepository permissaoRepository = new PermissaoRepository();
         private ISiteRepository siteRepository = new SiteRepository();
+        private ISiteRepository siteSPRepository = new SP.SiteRepository();
 
         public List<Model.Permissao> GetPermissoes(Connection connection)
         {
@@ -28,6 +30,16 @@ namespace SafePointSecurity.Application.Facade
                 sites = sites.Where(x => x.ParentId != null).ToList();
 
             return sites;
+        }
+
+        public bool AdicionarPermissaoSite(string urlSite, string nomeGrupo, string nomePermissao)
+        {
+            return siteSPRepository.AdicionarPermissao(urlSite, nomeGrupo, nomePermissao);
+        }
+
+        public bool RemoverPermissaoSite(string urlSite, string nomeGrupo)
+        {
+            return siteSPRepository.RemoverPermissao(urlSite, nomeGrupo);
         }
     }
 }

@@ -155,10 +155,30 @@
                         <div class="row">
                             <div class="table-scrollable report-table-result">
                                 <dir-pagination-controls max-size="1000" boundary-links="true"></dir-pagination-controls>
-                                <button class="btn btn-link" ng-click="exportToExcel('#table1')" style="float:right; border: 1px solid; border-radius: 5px; text-decoration: none;">
+                                <button class="btn btn-link" ng-click="exportToExcel('#table1')" ng-hide="(!tableResult)" style="float: right; border: 1px solid; border-radius: 5px; text-decoration: none;">
                                     <span class="icon-cloud-download"></span> Exportar para Excel
                                 </button>
-                                <table id="table1" class="table table-striped table-hover">
+                                <table id="table1" class='table table-striped table-hover' ng-hide="true">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Grupo</th>
+                                            <th>Usuário</th>
+                                            <th>Permissão</th>
+                                            <th>Site</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat='item in tableResult'>
+                                            <td>{{($index + 1)}}</td>
+                                            <td>{{item.grupo.nome}}</td>
+                                            <td>{{item.usuario.nome}}</td>
+                                            <td>{{item.nivelPermissao.nome}}</td>
+                                            <td><a target='_blank' href="{{'/' + item.site.url}}">{{item.site.nome}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
                                             <th># </th>
@@ -203,10 +223,11 @@
                                         </a>
                                     </div>
                                     <div id="collapse1" class="panel-collapse collapse">
-                                        <div class="panel-body">                                            
+                                        <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label style="width:100%">Grupos:
+                                                    <label style="width: 100%">
+                                                        Grupos:
                                                         
                                                     </label>
                                                     <ul class="list-group" style="max-height: 300px; overflow: auto">
@@ -219,7 +240,8 @@
                                                     </ul>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <label style="width:100%">Membros{{' de ' + grupoSelecionadoAdmin.nome}}:
+                                                    <label style="width: 100%">
+                                                        Membros{{' de ' + grupoSelecionadoAdmin.nome}}:
                                                         <a href="#" ng-click="OpenUrlAddUser(grupoSelecionadoAdmin)" ng-show="grupoSelecionadoAdmin != false">
                                                             <span class="badge pull-right bg-greenligth">
                                                                 <i class=" icon-plus" style="font-size: 20px"></i>
@@ -252,10 +274,10 @@
                                     </div>
                                     <div id="collapse2" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            
+
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label style="width:100%">Sites:</label>
+                                                    <label style="width: 100%">Sites:</label>
                                                     <multiselect-searchtree
                                                         multi-select="false"
                                                         data-input-model="treeview"
@@ -265,7 +287,8 @@
                                                     </multiselect-searchtree>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <label style="width:100%">Permissões{{' de ' + siteSelecionadoAdmin.nome}}:
+                                                    <label style="width: 100%">
+                                                        Permissões{{' de ' + siteSelecionadoAdmin.nome}}:
                                                         <a href="#" ng-show="siteSelecionadoAdmin != false" data-toggle="modal" data-target="#myModal" class="pull-right">
                                                             <span class="badge pull-right bg-greenligth">
                                                                 <i class=" icon-plus" style="font-size: 20px"></i>
@@ -315,7 +338,7 @@
                                         max-tags="1">
                                                 <auto-complete source="GetPeoplePickerSuggestion($query, siteSelecionadoAdmin)" min-length="3" debounce-delay="1000"></auto-complete>
                                     </tags-input>--%>
-                                    <input type="text" ng-model="permissao.nome" class="form-control" placeholder="Informe o nome do grupo"/>
+                                    <input type="text" ng-model="permissao.nome" class="form-control" placeholder="Informe o nome do grupo" />
                                 </div>
                             </div>
                             <hr />
@@ -323,8 +346,9 @@
                                 <div class="col-md-12">
                                     <label for="novoValor2">Permissão:</label>
                                     <div class="radio" ng-repeat="item in NiveisPermissaoAdm">
-                                        <label><input type="radio" name="optradio" ng-model="$parent.permissao.nivelPermissao" ng-value="item.nome"/>{{item.nome}}</label>
-                                    </div>                                    
+                                        <label>
+                                            <input type="radio" name="optradio" ng-model="$parent.permissao.nivelPermissao" ng-value="item.nome" />{{item.nome}}</label>
+                                    </div>
                                 </div>
                             </div>
 

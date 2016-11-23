@@ -39,6 +39,7 @@
     <AssemblyOriginatorKeyFile>infrastructure.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,6 +57,7 @@
     <Compile Include="Repository\Sharepoint\GrupoRespository.cs" />
     <Compile Include="Repository\Sharepoint\NivelPermissaoRepository.cs" />
     <Compile Include="Repository\Sharepoint\PermissaoRepository.cs" />
+    <Compile Include="Repository\Sharepoint\SiteRepository.cs" />
     <Compile Include="Repository\SqlServer\GrupoRespository.cs" />
     <Compile Include="Repository\SqlServer\NivelPermissaoRepository.cs" />
     <Compile Include="Repository\SqlServer\PermissaoRepository.cs" />
